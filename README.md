@@ -1,15 +1,15 @@
-# Что делает код 
-Находит по входным данным в формате JSON самый большой и маленький бар, а также самый близкий бар по заданным координатам 
+# What does the code do?
+Finds on the input data in JSON format the largest and smallest bar, as well as the nearest bar by the given coordinates
 
-# Как использовать 
+# How to use 
 
-В консоли выведется введите путь к файлу
+In the console, enter the path to the file
 
 ```python 
 print("enter path in file")
 path_in_file_of_user = input()
 ```
-После того, как вы введете путь к файлу, и если такой файл существует 
+After you enter the path to the file, and if such a file exists 
 
 ```python 
 load_data(file_path_of_user):
@@ -20,45 +20,44 @@ load_data(file_path_of_user):
         return None
     return data_format_json
 ```
-функция вернет `data_format_json`. Если файла нет, то выскачит исключение `except FileNotFoundError`
+function will return `data_format_json`. If the file does not exist, then an exception will pop up `except FileNotFoundError`
 
-Чтобы найти самый большой бар, надо воспользоваться функцией 
+To find the largest bar, you need to use the function
 ```python
 get_biggest_bar(data_format_json):
     features_data_json = data_format_json['features']
     biggest_bar = max(features_data_json, key=lambda x: x['properties']['Attributes']['SeatsCount'])
     return biggest_bar
  ```    
- При помощи лямбда выражений, находим самый большой бар, и возвращаем его.
+ Using lambda expressions, we find the biggest bar, and return it.
  
- Почти также находится самый маленький бар 
+ Almost also is the smallest bar 
  ```python
  get_smallest_bar(data_format_json):
     features_data_json = data_format_json['features']
     smallest_bar = min(features_data_json, key=lambda x: x['properties']['Attributes']['SeatsCount'])
     return smallest_bar
  ```
- 
- Для того чтобы найти самый близкий пар, программа запросить координаты
+To find the nearest bar, the program request coordinates
  ```python
  longitude = float(input("enter longitude: "))
  latitude = float(input("enter latitude: "))
 ```
 
-И после того как вы введете эти координаты, вызываем функцию
+After you enter these coordinates, we call the function
 ```python 
 get_closest_bar(data_format_json, longitude, latitude):
     features_data_json = data_format_json['features']
     closest_bar = min(features_data_json, key=lambda x: math.fabs(longitude - x['geometry']['coordinates'][0] + math.fabs(latitude - x['geometry']['coordinates'][1])))
     return closest_bar
  ```
- которая возвратит самый близкий бар.
+ which returns the closest bar.
  
-# Как запустить
+# How to start
 
-Скрипт требует для своей работы установленного интерпретатора Python версии 3.5
+The script requires the installed Python interpreter version 3.5
 
-Запуск на Linux:
+Running on Linux:
 
 ```bash
 
@@ -67,8 +66,8 @@ $ python bars.py # possibly requires call of python3 executive instead of just p
 
 ```
 
-Запуск на Windows происходит аналогично.
+Running on Windows is similar.
 
-# Цели проекта
+# Project Objectives
 
-Код создан в учебных целях. В рамках учебного курса по веб-разработке - [DEVMAN.org](https://devman.org)
+The code was created for educational purposes. In the framework of the training course on web development- [DEVMAN.org](https://devman.org)
