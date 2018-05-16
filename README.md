@@ -39,9 +39,9 @@ For start to me need to go in the directory in which is contain file in format J
 >cd C:/Users/User/PycharmProjects/firstTask
 
 ```
-For example script will be called main5.py, file in which contains data about bars in format JSON will be called jsonBar.txt.
-Longitude these is third parameter and latitude fourth parameter in console.
-longitude = 37.000000000000001, latitude = 55.000000000000001
+For example script will be called `main5.py`, file in which contains data about bars in format JSON will be called `jsonBar.txt`.
+`Longitude` these is third parameter and `latitude` fourth parameter in console.
+`longitude = 37.000000000000001`, `latitude = 55.000000000000001`
 
 ```bash
 
