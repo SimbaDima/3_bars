@@ -26,10 +26,11 @@ def get_smallest_bar(bars):
 def get_closest_bar(bars, longitude, latitude):
     try:
         closest_bar = min(bars, key=lambda x: math.fabs(longitude - x["geometry"]["coordinates"][0]
-                                                    + math.fabs(latitude - x["geometry"]["coordinates"][1])))
+                                                        + math.fabs(latitude - x["geometry"]["coordinates"][1])))
         return closest_bar["properties"]["Attributes"]["Address"], closest_bar["properties"]["Attributes"]["Name"]
     except TypeError:
         return None
+
 
 if __name__ == '__main__':
     path_in_file_of_user = sys.argv[1]
