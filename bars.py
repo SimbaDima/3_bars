@@ -14,12 +14,14 @@ def load_data_from_file(file_path_of_user):
 
 
 def get_biggest_bar(bars):
-    biggest_bar = max(bars, key=lambda x: x['properties']['Attributes']['SeatsCount'])
+    biggest_bar = max(bars,
+                      key=lambda x: x['properties']['Attributes']['SeatsCount'])
     return biggest_bar["properties"]["Attributes"]["Address"], biggest_bar["properties"]["Attributes"]["Name"]
 
 
 def get_smallest_bar(bars):
-    smallest_bar = min(bars, key=lambda x: x['properties']['Attributes']['SeatsCount'])
+    smallest_bar = min(bars,
+                       key=lambda x: x['properties']['Attributes']['SeatsCount'])
     return smallest_bar["properties"]["Attributes"]["Address"], smallest_bar["properties"]["Attributes"]["Name"]
 
 
@@ -35,11 +37,12 @@ def get_closest_bar(bars, longitude, latitude):
 if __name__ == '__main__':
     path_in_file_of_user = sys.argv[1]
     data_format_json1 = load_data_from_file(path_in_file_of_user)
-    print("biggest bar: in Moscow, him adress and name: {}".format(str(get_biggest_bar(data_format_json1))))
-    print("smallest bar: in Moscow, him adress and name: {}".format(get_smallest_bar(data_format_json1)))
+    print("biggest bar: in Moscow, him address and name: {}".format(str(get_biggest_bar(data_format_json1))))
+    print("smallest bar: in Moscow, him address and name: {}".format(get_smallest_bar(data_format_json1)))
     try:
         longitude = float(sys.argv[2])
         latitude = float(sys.argv[3])
-        print("closest bar: in Moscow, him adress and name: {}".format(get_closest_bar(data_format_json1, longitude, latitude)))
+        print("closest bar: in Moscow, him address and name: {}"
+              .format(get_closest_bar(data_format_json1, longitude, latitude)))
     except ValueError:
         print("longitude and latitude will be float")
