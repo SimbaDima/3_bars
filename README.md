@@ -55,9 +55,9 @@ After start we will see in console
 
 >cd C:/Users/User/PycharmProjects/firstTask
 >python main5.py jsonBar.txt 37.0000000000000001 55.000000000000001
-biggest bar: in Moscow, him adress and name: ('Автозаводская улица, дом 23, строение 1', 'Спорт бар «Красная машина»')
-smallest bar: in Moscow, him adress and name: ('Дубравная улица, дом 34/29', 'БАР. СОКИ')
-closest bar: in Moscow, him adress and name: ('Ратная улица, дом 10А', 'ПОДМОСКОВНЫЙ СТРОИТЕЛЬ')
+biggest bar: in Moscow, him address and name: ('Автозаводская улица, дом 23, строение 1', 'Спорт бар «Красная машина»')
+smallest bar: in Moscow, him address and name: ('Дубравная улица, дом 34/29', 'БАР. СОКИ')
+coordinates closest bar in Moscow: (36.900000000253, 55.303299999814)
 ```
 
 # Project Objectives
