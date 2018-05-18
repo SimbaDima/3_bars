@@ -32,15 +32,15 @@ def get_smallest_bar(bars):
 
 
 def get_closest_bar(bars, longitude, latitude):
+    longitudes = []
+    latitudes = []
+    for elements in bars:
+        longitudes.append(elements["geometry"]["coordinates"][0])
+        latitudes.append(elements["geometry"]["coordinates"][1])
     try:
-        closest_bar = min(
-            bars,
-            key=lambda x: math.fabs(
-                longitude - x["geometry"]["coordinates"][0] + math.fabs(
-                    latitude - x["geometry"]["coordinates"][1])))
-        closes_bar_address = closest_bar["properties"]["Attributes"]["Address"]
-        closest_bar_name = closest_bar["properties"]["Attributes"]["Name"]
-        return closes_bar_address, closest_bar_name
+        closest_longitude = min(longitudes)
+        closest_latitude = min(latitudes)
+        return closest_longitude, closest_latitude
     except TypeError:
         return None
 
@@ -55,7 +55,7 @@ if __name__ == '__main__':
     try:
         longitude = float(sys.argv[2])
         latitude = float(sys.argv[3])
-        print("closest bar: in Moscow, him address and name: {}"
+        print("coordinates closest bar in Moscow: {}"
               .format(get_closest_bar(data_format_json1, longitude, latitude)))
     except ValueError:
         print("longitude and latitude will be float")
