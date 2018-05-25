@@ -14,8 +14,16 @@ then the file is copied in `object_of_file`, after the data is loaded in format 
  data_from_file = json.load(object_of_file)
 
 ```
+These is function return all information about `bars`, from file of user, in format JSON. 
+```python
 
-The function ```load_data_from_file(file_path_of_user)``` is return us `bars`, then the bars go into functions as parameters
+return bars
+
+```
+`bars` will be in all next function as parameter
+
+
+then the bars go into functions
 ```python 
 
 get_biggest_bar(bars)
